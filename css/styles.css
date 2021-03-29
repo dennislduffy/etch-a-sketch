@@ -1,0 +1,14 @@
+.container {
+  background-color: grey;
+  height: 1000px;
+  width: 1000px;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px; s
+}
+
+.etch-div {
+  background-color: red;
+  height: 100px;
+  width: 100px;
+}
