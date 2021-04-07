@@ -1,25 +1,31 @@
-/*let newPara = document.createElement("p");
+let container = document.querySelector(".container");
 
-let newText = document.createTextNode("Test");
+for (i = 0; i < 16; i++) {
 
-newPara.appendChild(newText);
+  let etchContainer = document.createElement("div");
 
-let container = document.querySelector("div.container");
+  etchContainer.classList.add("etch-div");
 
-container.appendChild(newPara);
-*/
+  etchContainer.classList.add("color-new")
 
-let container = document.querySelector("div.container");
-
-for(i=0; i<9; i++){
-
-    let etchContainer = document.createElement("div");
-
-    etchContainer.classList.add("etch-div");
-
-    container.appendChild(etchContainer);
+  container.appendChild(etchContainer);
 }
 
+let numDivs = document.querySelectorAll(".etch-div").length;
+
+for(i = 0; i < numDivs; i++){
+    document.querySelectorAll(".etch-div")[i].addEventListener("mouseover", function (e) {
+      e.target.style.background = 'blue';
+  });
+}
+
+
+document.querySelector("button").addEventListener("click", handleClick);
+
+
+function handleClick() {
+  document.querySelectorAll(".etch-div").style.background = "red";
+}
 
 
 

@@ -3,12 +3,22 @@
   height: 1000px;
   width: 1000px;
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px; s
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px;
 }
 
 .etch-div {
-  background-color: red;
   height: 100px;
   width: 100px;
+  border-width: 5px;
+  border-color: black;
+  border-style: solid;
+}
+
+.color-new {
+  background-color: red;
+}
+
+.color-drawn {
+  background-color: blue;
 }
