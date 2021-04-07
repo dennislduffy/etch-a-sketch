@@ -15,7 +15,9 @@ let numDivs = document.querySelectorAll(".etch-div").length;
 
 for(i = 0; i < numDivs; i++){
     document.querySelectorAll(".etch-div")[i].addEventListener("mouseover", function (e) {
-      e.target.style.background = 'blue';
+      e.target.classList.remove("color-new");
+      e.target.classList.add("color-drawn");
+      /*style.background = 'blue';*/
   });
 }
 
@@ -24,7 +26,10 @@ document.querySelector("button").addEventListener("click", handleClick);
 
 
 function handleClick() {
-  document.querySelectorAll(".etch-div").style.background = "red";
+  for(i = 0; i < numDivs; i++){
+    document.querySelectorAll(".etch-div")[i].classList.remove("color-drawn");
+    document.querySelectorAll(".etch-div")[i].classList.add("color-new");
+  } 
 }
 
 

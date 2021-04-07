@@ -1,5 +1,5 @@
 .container {
-  background-color: grey;
+  background-color: gray;
   height: 1000px;
   width: 1000px;
   display: grid;
@@ -11,14 +11,12 @@
   height: 100px;
   width: 100px;
   border-width: 5px;
-  border-color: black;
-  border-style: solid;
 }
 
 .color-new {
-  background-color: red;
+  background-color: white;
 }
 
 .color-drawn {
-  background-color: blue;
+  background-color: black;
 }
