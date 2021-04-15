@@ -1,46 +1,108 @@
-let container = document.querySelector(".container");
+/*create function to make container div*/
 
-let dimension = prompt("How many squares high would you like the grid? Please enter a number between 0 and 10: ")
+function makeContainer(){
 
-if(dimension > 10){
+  let container = document.createElement("div");
 
-  let dimension = 10
+  document.body.appendChild(container);
+
+  container.classList.add("container");
 
 }
 
-document.documentElement.style.setProperty("--dimension", dimension);
+/*prompt user for number of divs*/
 
-for (i = 0; i < dimension * dimension; i++) {
+function promptUser(){
 
-  let etchContainer = document.createElement("div");
+  let dimension = prompt("enter a number: ");
 
-  etchContainer.classList.add("etch-div");
+  if(dimension > 100){
+    
+    dimension = 100;
 
-  etchContainer.classList.add("color-new");
+  }
 
-  container.appendChild(etchContainer);
+  return(dimension);
+
 }
 
-let numDivs = document.querySelectorAll(".etch-div").length;
+/*Create a function to make divs*/
 
-for(i = 0; i < numDivs; i++){
-    document.querySelectorAll(".etch-div")[i].addEventListener("mouseover", function (e) {
-      e.target.classList.remove("color-new");
-      e.target.classList.add("color-drawn");
-      /*style.background = 'blue';*/
-  });
-}
+function makeDivs(dimension){
 
+  let container = document.querySelector(".container");
 
-document.querySelector("button").addEventListener("click", handleClick);
+  let numDivs = dimension * dimension;
 
+  for (i = 0; i < numDivs; i++) {
 
-function handleClick() {
+    let etchDiv = document.createElement("div");
+    
+    etchDiv.classList.add("etch-div");
+    
+    etchDiv.classList.add("color-new");
+    
+    container.appendChild(etchDiv);
+
+  }
+
   for(i = 0; i < numDivs; i++){
-    document.querySelectorAll(".etch-div")[i].classList.remove("color-drawn");
-    document.querySelectorAll(".etch-div")[i].classList.add("color-new");
-  } 
+
+    document.querySelectorAll(".etch-div")[i].addEventListener("mouseover", function (e) {
+
+        e.target.classList.remove("color-new");
+
+        e.target.classList.add("color-drawn");
+
+    });
+  }
 }
 
+/*Remove any existing divs*/
 
+function removeDivs(){
 
+  let numEtch = document.querySelectorAll(".etch-div").length;
+
+  
+  for(i = 0; i < numEtch; i++){
+
+    document.querySelectorAll(".etch-div")[0].remove();
+
+  }
+  
+}
+
+/*put it all together*/
+
+function makeEtch(dimension){
+
+  removeDivs();
+
+  makeContainer();
+
+  /*let dimension = promptUser();*/
+
+  makeDivs(dimension);
+
+  document.documentElement.style.setProperty("--dimension", dimension);
+
+}
+
+/*Add event listener for the button*/
+document.querySelector("button").addEventListener("click", function(){
+  
+  let dimension = promptUser();
+
+  makeEtch(dimension);
+
+});
+
+/*Add event listener for when page loads*/
+document.addEventListener("DOMContentLoaded", function(){
+  
+  let dimension = 16;
+  
+  makeEtch(dimension);
+  
+});

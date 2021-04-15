@@ -1,8 +1,8 @@
 :root {
-  --dimension: 2;
+  --dimension: 16;
 }
 .container {
-  background-color: gray;
+  background-color: white;
   height: 1000px;
   width: 1000px;
   display: grid;
