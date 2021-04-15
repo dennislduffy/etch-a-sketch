@@ -64,7 +64,6 @@ function removeDivs(){
 
   let numEtch = document.querySelectorAll(".etch-div").length;
 
-  
   for(i = 0; i < numEtch; i++){
 
     document.querySelectorAll(".etch-div")[0].remove();
@@ -80,8 +79,6 @@ function makeEtch(dimension){
   removeDivs();
 
   makeContainer();
-
-  /*let dimension = promptUser();*/
 
   makeDivs(dimension);
 
